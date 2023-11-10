@@ -1,5 +1,10 @@
+import { NextFunction, Request, Response } from "express";
+import { UrlIdValidationError } from "./url-id-validation-error";
+
 export class SecretsByIdController {
-    retrieveSecret(retrieveSecret: any) {
-        
+    retrieveSecret = (request: Request, response: Response, next: NextFunction) => {
+        if (request.params.urlId.length < 10) {
+            next(new UrlIdValidationError('UrlId is too short'))
+        }
     }
 }

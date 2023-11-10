@@ -7,6 +7,7 @@ describe('Get Secrets Integration Test', () => {
     it('should return an error when the urlId provided is too short', async () => {
         const response = await request.get('/api/v1/secrets/2short')
 
+        console.log(response.body)
         expect(response.status).toBe(400)
         expect(response.body).toEqual({
             name: 'UrlIdValidationError',
