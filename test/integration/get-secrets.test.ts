@@ -15,7 +15,15 @@ describe('Get Secrets Integration Test', () => {
         })
     })
 
-    xit('should return an error when the secret does not exists in the system', () => {
+    it('should return an error when the secret does not exists in the system', async () => {
+        const response = await request.get('/api/v1/secrets/123nonexistantsecret')
+
+        console.log(response.body)
+        expect(response.status).toBe(404)
+        expect(response.body).toEqual({
+            name: 'SecretNotFoundError',
+            message: 'Secret was not found in the system'
+        })
     })
 
     xit('should retrieve a secret from the system', () => {

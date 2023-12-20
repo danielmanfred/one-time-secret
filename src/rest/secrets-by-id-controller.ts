@@ -1,10 +1,17 @@
 import { NextFunction, Request, Response } from "express";
-import { UrlIdValidationError } from "../url-id-validation-error";
+import { UrlId } from "../UrlId";
+import { SecretRetriver } from "./secret-retriver";
 
 export class SecretsByIdController {
-    retrieveSecret = (request: Request, response: Response, next: NextFunction) => {
-        if (request.params.urlId.length < 10) {
-            next(new UrlIdValidationError('UrlId is too short'))
+
+    constructor(private secretRetriver: SecretRetriver) {}
+
+    retrieveSecret = async (request: Request, response: Response, next: NextFunction) => {
+        try {
+            const urlId = new UrlId(request.params.urlId)
+            return await this.secretRetriver.retrieveSecretByUrlId(urlId)
+        } catch (error) {
+            next(error)
         }
     }
 }
