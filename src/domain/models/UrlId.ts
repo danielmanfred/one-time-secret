@@ -1,4 +1,4 @@
-import { UrlIdValidationError } from "./url-id-validation-error";
+import { UrlIdValidationError } from "../errors/url-id-validation-error";
 
 export class UrlId {
     constructor(private urlId: string) {

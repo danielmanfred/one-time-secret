@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { SecretNotFoundError } from "../secret-not-found-error";
+import { SecretNotFoundError } from "../../../domain/errors/secret-not-found-error";
 
 
 export function errorHandler(error: Error, request: Request, response: Response, next: NextFunction): void {

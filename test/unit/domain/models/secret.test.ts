@@ -1,5 +1,5 @@
-import { Secret } from "../../src/secret"
-import { SecretValidationError } from "../../src/secret-validation-error"
+import { Secret } from "../../../../src/domain/models/secret"
+import { SecretValidationError } from "../../../../src/domain/errors/secret-validation-error"
 
 describe('Secret', () => {
     it('should create an instance of secret', () => {

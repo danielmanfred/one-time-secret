@@ -1,5 +1,5 @@
-import { SecretValidationError } from "../../src/secret-validation-error"
-import { UrlIdValidationError } from "../../src/url-id-validation-error"
+import { SecretValidationError } from "../../../../src/domain/errors/secret-validation-error"
+import { UrlIdValidationError } from "../../../../src/domain/errors/url-id-validation-error"
 
 describe('SecretValidationError', () => {
     it('should create a SecretValidationError error', () => {
