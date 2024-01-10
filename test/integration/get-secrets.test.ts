@@ -16,6 +16,7 @@ describe('Get Secrets Integration Test', () => {
     })
 
     it('should return an error when the secret does not exists in the system', async () => {
+        // mock db
         const response = await request.get('/api/v1/secrets/123nonexistantsecret')
 
         console.log(response.body)
